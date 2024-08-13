@@ -1,0 +1,14 @@
+QtProject.conf
+pavucontrol.ini
+*/
+
+!alacritty/
+!i3/
+!nvim/
+!pacmixer/
+!picom/
+!polybar/
+!qutebrowser/
+!ranger/
+!rofi/
+!tmux/

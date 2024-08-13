@@ -1,0 +1,10 @@
+bindsym $mod+Shift+minus move scratchpad
+
+bindsym $mod+z [class="pacmixer"] scratchpad show; move position center
+bindsym $mod+x [class="htop"] scratchpad show; move position center
+
+exec_always --no-startup-id pgrep -f '^alacritty --class pacmixer,pacmixer' || alacritty --class pacmixer,pacmixer -e pacmixer
+for_window [class="pacmixer"] move scratchpad
+
+exec_always --no-startup-id pgrep -f '^alacritty --class htop,htop' || alacritty --class htop,htop -e htop
+for_window [class="htop"] move scratchpad
