@@ -6,7 +6,27 @@
 
 config_version: 2
 settings:
+  bindings.commands:
+    global:
+      normal:
+        aa: devtools
   content.javascript.clipboard:
     global: access
+  content.media.audio_capture:
+    https://meet.google.com: true
+    https://teams.microsoft.com: true
+    https://www.englishdom.com: true
+  content.media.audio_video_capture:
+    https://meet.google.com: true
+    https://teams.microsoft.com: true
+  content.media.video_capture:
+    https://meet.google.com: true
+    https://www.englishdom.com: true
+  content.notifications.enabled:
+    https://gitlab.com: true
+    https://www.bybit.com: false
+    https://www.englishdom.com: true
   content.register_protocol_handler:
+    https://calendar.google.com?cid=%25s: true
     https://mail.google.com?extsrc=mailto&url=%25s: true
+    https://outlook.office.com?mailtouri=%25s: true

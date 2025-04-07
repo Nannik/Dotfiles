@@ -1,4 +1,11 @@
 {
 	"javascript.suggest.autoImports": true, 
-	"typescript.suggest.autoImports": true
+	"typescript.suggest.autoImports": true,
+	"clangd.path": "~/.config/coc/extensions/coc-clangd-data/install/18.1.3/clangd_18.1.3/bin/clangd",
+	"clangd.arguments": [
+		"--inlay-hints=false"
+	],
+	"snippets.ultisnips.pythonPrompt": false,
+        "typescript.preferences.quoteStyle": "single",
+        "coc.preferences.formatOnSave": true
 }

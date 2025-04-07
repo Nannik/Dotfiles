@@ -40,6 +40,8 @@ fi
 #/usr/bin/pipewire-pulse &
 #/usr/bin/wireplumber &
 
-feh --bg-fill ~/wallpapers/ass.png
+feh --bg-fill ~/wallpapers/calibri.jpg
 picom &
 exec i3
+
+dunst &

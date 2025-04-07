@@ -2,9 +2,21 @@ bindsym $mod+Shift+minus move scratchpad
 
 bindsym $mod+z [class="pacmixer"] scratchpad show; move position center
 bindsym $mod+x [class="htop"] scratchpad show; move position center
+bindsym F1 [class="map1"] scratchpad show; move position center
+bindsym F2 [class="map2"] scratchpad show; move position center
+bindsym F3 [class="map3"] scratchpad show; move position center
 
 exec_always --no-startup-id pgrep -f '^alacritty --class pacmixer,pacmixer' || alacritty --class pacmixer,pacmixer -e pacmixer
 for_window [class="pacmixer"] move scratchpad
 
 exec_always --no-startup-id pgrep -f '^alacritty --class htop,htop' || alacritty --class htop,htop -e htop
 for_window [class="htop"] move scratchpad
+
+exec_always --no-startup-id pgrep -f '^feh --class map1,map1 ~/keymap/map1.png' || feh --class map1,map1 ~/keymap/map1.png
+for_window [class="map1"] move scratchpad
+
+exec_always --no-startup-id pgrep -f '^feh --class map2,map2 ~/keymap/map2.png' || feh --class map2,map2 ~/keymap/map2.png
+for_window [class="map2"] move scratchpad
+
+exec_always --no-startup-id pgrep -f '^feh --class map3,map3 ~/keymap/map3.png' || feh --class map3,map3 ~/keymap/map3.png
+for_window [class="map3"] move scratchpad

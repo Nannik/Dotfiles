@@ -101,8 +101,9 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias ccp="colorpicker --short"
 alias nv="nvim"
-alias perm="stat -c%A"
+alias perm="stat -c%a"
 alias conf="/usr/bin/git --git-dir=$HOME/bare/conf.git/ --work-tree=$HOME"
+alias dwm-upd="sudo make -C ~/dwm/ clean install"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -110,6 +111,10 @@ export NVM_DIR="$HOME/.nvm"
 
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+bindkey '^ ' autosuggest-accept
+
+ZSH_AUTOSUGGEST_STRATEGY=completion
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
