@@ -31,9 +31,12 @@ vim.o.path = '.,**'
 -- Mappings
 vim.keymap.set('n', '<Leader>l', ':Lint ', {})
 vim.keymap.set('n', '<Leader>ll', ':Lint ', {})
+vim.keymap.set('n', '<Leader><Leader>s', ':so %<CR>', {})
+vim.keymap.set('n', '<Leader><Esc>', ':noh', {})
+vim.keymap.set('n', '<Leader>sn', function ()
+	require("luasnip.loaders").edit_snippet_files()
+end, {})
 
-vim.keymap.set('n', '.', 'z', {})
-vim.keymap.set('n', '<Space>', 'za', {})
 vim.keymap.set('n', '<C-c>', ':bp|bd #<CR>')
 
 vim.keymap.set('i', '<C-c>', '<Esc>')
@@ -43,8 +46,8 @@ vim.keymap.set({ 'n', 'x' }, '<C-_>', 'gc', { remap = true })
 
 -- Autocommands
 vim.api.nvim_create_autocmd("BufWinEnter", {
-  pattern = "*",
-  command = "silent! loadview"
+	pattern = "*",
+	command = "silent! loadview"
 })
 
 -- vim.api.nvim_create_autocmd("BufWinEnter", {
@@ -52,43 +55,46 @@ vim.api.nvim_create_autocmd("BufWinEnter", {
 -- 	command = "silent! lcd%:p:h"
 -- })
 
+
 vim.api.nvim_create_autocmd("BufWinLeave", {
-  pattern = "*",
-  command = "silent! mkview"
+	pattern = "*",
+	command = "silent! mkview"
 })
 
 vim.filetype.add {
-  extension = {
-    rasi = 'rasi'
-  }
+	extension = {
+		rasi = 'rasi'
+	}
 }
 
 -- Commands
 vim.api.nvim_create_user_command("Lint", function(opts)
-  local args = split(opts.fargs[1], ' ');
-  local mappedArgs = map(args, function(arg) 
-    local short = {
-      f = "fix",
-      q = "quiet"
-    }
+	local args = split(opts.fargs[1], ' ');
+	local mappedArgs = map(args, function(arg)
+		local short = {
+			f = "fix",
+			q = "quiet"
+		}
 
-    if not (short[arg] == nil) then
-      arg = short[arg]
-    end
+		if not (short[arg] == nil) then
+			arg = short[arg]
+		end
 
-    return '--' .. arg 
-  end);
+		return '--' .. arg
+	end);
 
-  vim.cmd('!npx eslint % ' .. table.concat(mappedArgs, ' '))
+	vim.cmd('!npx eslint % ' .. table.concat(mappedArgs, ' '))
 end, { nargs = 1 })
+
+vim.api.nvim_create_user_command("EditSnippet", function(opts)
+	local lang = opts.fargs[1]
+
+	vim.cmd('e $RTP/snippets/' .. lang .. '.lua')
+end, { nargs = 1})
 
 vim.api.nvim_create_user_command("ERC", "norm $i{<CR>return kj%a}kj", {})
 vim.api.nvim_create_user_command("TODO", "e $RTP/todo.txt", {})
 
--- lang
-require 'lang.go'
-require 'lang.tex'
-
+require 'config.lazy'
 require 'projects'
-require 'plugins.plugins'
 require 'colorscheme'
