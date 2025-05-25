@@ -8,7 +8,9 @@ return {
 		config = function()
 			local ls = require('luasnip')
 
-			ls.setup({})
+			ls.setup({
+        updateevents = 'TextChanged,TextChangedI',
+      })
 			require("luasnip.loaders.from_lua").load({ paths = "~/.config/nvim/snippets" })
 
 			vim.keymap.set({ "i", "s" }, "<C-L>", function() ls.jump(1) end, { silent = true })

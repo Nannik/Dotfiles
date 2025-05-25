@@ -47,6 +47,7 @@ return {
 			vim.keymap.set('n', '<space>fr', function() builtin.registers() end, {})
 			vim.keymap.set('n', '<space>fh', function() builtin.help_tags() end, {})
 			vim.keymap.set('n', '<space>ww', function() builtin.buffers() end, {})
+			vim.keymap.set('n', '<space>fd', function() builtin.diagnostics() end, {})
 		end
 	},
 	{

@@ -53,7 +53,7 @@ return {
 					throttle = 20,
 
 					-- Minimum message length before wrapping to a new line
-					softwrap = 30,
+					softwrap = 0,
 
 					-- Configuration for multiline diagnostics
 					-- Can either be a boolean or a table with the following options:
@@ -95,7 +95,7 @@ return {
 						-- Trigger wrapping to occur this many characters earlier when mode == "wrap".
 						-- Increase this value appropriately if you notice that the last few characters
 						-- of wrapped diagnostics are sometimes obscured.
-						padding = 0,
+						padding = 5,
 					},
 
 					-- Configuration for breaking long messages into separate lines

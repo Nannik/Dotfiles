@@ -1,13 +1,12 @@
-replace coc.nvim
-
 Jump to parent class
 replace in project
 move directory and change imports accordingly
-
-add argument to all subclasses func, constructors
 
 move to beginning/end of previous block(tab); move up and down intend level
 
 i18n
 
 open current buffer in neighbor window
+
+add argument to all subclasses func, constructors
+

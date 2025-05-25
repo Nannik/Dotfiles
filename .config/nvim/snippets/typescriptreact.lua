@@ -19,6 +19,9 @@ local function upperFirst(args)
 end
 
 return {
+  --------------------
+  --- US, USESTATE ---
+  --------------------
 	s('us', fmt('const [{}, set{}] = useState{}({});', {
 		i(1, 'default'),
 		f(upperFirst, 1),
@@ -27,5 +30,36 @@ return {
 			t('<>')
 		}),
 		i(3, 'null'),
-	}))
+	})),
+
+  ---------------------------
+  --- RC, REACT COMPONENT ---
+  ---------------------------
+  s({
+      trig = 'rc',
+      name = 'React Component',
+    },
+    fmt([[
+    export const {} = () => {}
+  ]], {
+      i(1, 'Component'),
+      c(2, {
+        t({ '(', '', ')' }),
+        t({ '{', '\treturn ()', '}' }),
+      })
+    })),
+
+  -------------------
+  --- CONSOLE.LOG ---
+  -------------------
+  s({
+    trig = 'cl',
+    name = 'console.log'
+  },
+  fmt([[
+    console.log('{}', {})
+  ]], {
+    rep(1),
+    i(1)
+  }))
 }
